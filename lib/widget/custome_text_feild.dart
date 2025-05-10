@@ -15,6 +15,11 @@ class CustomeTextFeild extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextFormField(
       onSaved: onsaved,
+      validator: (value) {
+        if (value?.isEmpty ?? true) {
+          return 'valid is Required';
+        }
+      },
       maxLines: Maxlines,
       decoration: InputDecoration(
         border: OutlineInputBorder(borderRadius: BorderRadius.circular(12)),
