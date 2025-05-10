@@ -7,14 +7,42 @@ class AddModelProgressSheet extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(20.0),
+    return Padding(padding: const EdgeInsets.all(20.0), child: AddNoteForm());
+  }
+}
+
+class AddNoteForm extends StatefulWidget {
+  const AddNoteForm({super.key});
+
+  @override
+  State<AddNoteForm> createState() => _AddNoteFormState();
+}
+
+class _AddNoteFormState extends State<AddNoteForm> {
+  String? title, subtitle;
+  final GlobalKey<FormState> formkey = GlobalKey();
+  @override
+  Widget build(BuildContext context) {
+    return Form(
+      key: formkey,
       child: Column(
         children: [
           SizedBox(height: 30),
-          CustomeTextFeild(text: "Add Note", Maxlines: 1),
+          CustomeTextFeild(
+            text: "Add Note",
+            Maxlines: 1,
+            onsaved: (value) {
+              title = value;
+            },
+          ),
           SizedBox(height: 10),
-          CustomeTextFeild(text: "Add Title", Maxlines: 5),
+          CustomeTextFeild(
+            text: "Add Title",
+            Maxlines: 5,
+            onsaved: (value) {
+              title = value;
+            },
+          ),
           SizedBox(height: 25),
           Customebottom(),
         ],

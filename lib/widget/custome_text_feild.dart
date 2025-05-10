@@ -1,13 +1,20 @@
 import 'package:flutter/material.dart';
 
 class CustomeTextFeild extends StatelessWidget {
-  CustomeTextFeild({super.key, required this.text, required this.Maxlines});
+  CustomeTextFeild({
+    super.key,
+    required this.text,
+    required this.Maxlines,
+    this.onsaved,
+  });
 
   @override
   String text;
   int Maxlines;
+  void Function(String?)? onsaved;
   Widget build(BuildContext context) {
     return TextFormField(
+      onSaved: onsaved,
       maxLines: Maxlines,
       decoration: InputDecoration(
         border: OutlineInputBorder(borderRadius: BorderRadius.circular(12)),
