@@ -17,7 +17,7 @@ class CustomeTextFeild extends StatelessWidget {
       onSaved: onsaved,
       validator: (value) {
         if (value?.isEmpty ?? true) {
-          return 'valid is Required';
+          return 'Valid is Required';
         }
       },
       maxLines: Maxlines,
