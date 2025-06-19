@@ -14,7 +14,7 @@ class NoteItem extends StatelessWidget {
       onTap: () {
         Navigator.push(
           context,
-          MaterialPageRoute(builder: (context) => EditView()),
+          MaterialPageRoute(builder: (context) => EditView(note: note)),
         );
       },
       child: Container(

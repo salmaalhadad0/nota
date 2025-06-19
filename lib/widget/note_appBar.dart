@@ -1,11 +1,17 @@
 import 'package:flutter/material.dart';
 
 class NoteAppbar extends StatelessWidget {
-  NoteAppbar({super.key, required this.text, required this.icon});
+  NoteAppbar({
+    super.key,
+    required this.text,
+    required this.icon,
+    this.onPressed,
+  });
 
   @override
   String text;
-  IconData icon;
+  IconData? icon;
+  final void Function()? onPressed;
   Widget build(BuildContext context) {
     return Row(
       children: [
@@ -25,7 +31,7 @@ class NoteAppbar extends StatelessWidget {
             borderRadius: BorderRadius.circular(12),
             color: Colors.white.withOpacity(.1),
           ),
-          child: Icon(icon),
+          child: GestureDetector(onTap: onPressed, child: Icon(icon)),
         ),
       ],
     );
